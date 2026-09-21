@@ -1,0 +1,3 @@
+# Versiones con las que se desarrollaron y probaron las prácticas (septiembre de 2026).
+google-adk==2.8.0        # Agent Development Kit (incluye google-genai, pydantic y python-dotenv)
+ddgs==9.16.0             # Búsqueda web con DuckDuckGo, solo para research_assistant_ddg

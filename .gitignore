@@ -1,0 +1,24 @@
+# Credenciales: cada agente tiene su .env con GOOGLE_API_KEY. Nunca se sube.
+.env
+!.env.example
+
+# Entorno virtual de Python (se recrea con requirements.txt)
+.venv/
+venv/
+
+# Bytecode
+__pycache__/
+*.py[cod]
+
+# Datos locales de `adk web`: sesiones, artefactos, evaluaciones
+.adk/
+*.db
+
+# Material del curso (PDFs, libros): no se redistribuye
+libros/
+
+# Editores / sistema
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
