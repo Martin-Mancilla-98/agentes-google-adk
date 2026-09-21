@@ -5,8 +5,7 @@ información en tiempo real.
 Referencia: https://google.github.io/adk-docs/tools/built-in-tools#google-search
 """
 from google.adk.agents import LlmAgent
-from google.adk.tools.google_search_tool import google_search
-#from google.adk.tools import google_search  # herramienta integrada: no hay que implementar nada
+from google.adk.tools.google_search_tool import google_search  # herramienta integrada: no hay que implementar nada
 
 root_agent = LlmAgent(
     model="gemini-3.5-flash",  # google_search requiere Gemini 2.0+

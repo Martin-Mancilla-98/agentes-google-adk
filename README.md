@@ -28,7 +28,7 @@ git clone https://github.com/Martin-Mancilla-98/agentes-google-adk.git
 cd agentes-google-adk
 
 python -m venv .venv
-.venv\Scripts\activate          # Windows (CMD)   |   source .venv/bin/activate  (Linux/macOS)
+.venv\Scripts\activate          # Windows (CMD)  ·  .venv\Scripts\Activate.ps1 (PowerShell)  ·  source .venv/bin/activate (Linux/macOS)
 
 pip install -r requirements.txt
 ```
@@ -73,7 +73,7 @@ math_assistant/
 
 Cosas que el material del curso da por sentadas y que, en septiembre de 2026 y con una cuenta gratuita nueva, ya no son así:
 
-- **Los modelos `gemini-2.5-*` no están disponibles para cuentas nuevas** (`404: no longer available to new users`). Las prácticas usan `gemini-3.5-flash`, `gemini-3.5-flash-lite` y `gemini-3.6-flash`.
+- **Los modelos `gemini-2.5-*` no están disponibles para cuentas nuevas** (`404: no longer available to new users`). Las prácticas usan `gemini-3.5-flash-lite` (agentes simples) y `gemini-3.5-flash` (herramientas integradas y búsqueda).
 - **La búsqueda de Google (`google_search`) no tiene cuota en el nivel gratuito** para los modelos Gemini 3.x: devuelve `429 RESOURCE_EXHAUSTED` en la primera llamada. Solo funciona con facturación activada. Por eso `research_assistant` queda como código de referencia y existe `research_assistant_ddg`.
 - **La ejecución de código (`BuiltInCodeExecutor`) sí es gratuita**: se cobra como tokens normales, que en el nivel gratuito no tienen costo.
 - **ADK no reintenta por defecto**: un `503 UNAVAILABLE` por alta demanda corta la respuesta. `research_assistant_ddg` muestra cómo activar reintentos con `Gemini(retry_options=HttpRetryOptions(...))`.
@@ -90,4 +90,4 @@ Correcciones que hubo que hacer para que los ejemplos funcionaran en ADK 2.8:
 
 ## Licencia
 
-Código de práctica, de uso libre. El material del curso pertenece a Google y no se incluye.
+[MIT](LICENSE). El material del curso pertenece a Google y no se incluye.

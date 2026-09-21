@@ -3,7 +3,7 @@
 Asistente de investigación que usa la búsqueda de Google con fundamentación (*grounding*), tal como la provee ADK: se importa y se agrega a `tools`, sin implementar nada.
 
 ```python
-from google.adk.tools import google_search
+from google.adk.tools.google_search_tool import google_search
 
 root_agent = LlmAgent(..., tools=[google_search])
 ```
@@ -32,4 +32,4 @@ El código se mantiene como referencia de la lección. Para un asistente de inve
 - `¿Cuáles son los avances más recientes en energía renovable?`
 - `Compara vehículos eléctricos y vehículos de pila de combustible de hidrógeno`
 
-> Nota: VS Code (Pylance) puede marcar el import de `google_search` con la advertencia *"is not exported from module"*. Es un falso positivo: `google.adk.tools` carga sus herramientas de forma perezosa y define `__all__` dinámicamente, cosa que el analizador estático no puede evaluar. El import funciona.
+> Nota: la forma corta `from google.adk.tools import google_search` también funciona, pero VS Code (Pylance) la marca con la advertencia *"is not exported from module"*. Es un falso positivo (`google.adk.tools` carga sus herramientas de forma perezosa y define `__all__` dinámicamente); importar desde el submódulo evita el aviso.
