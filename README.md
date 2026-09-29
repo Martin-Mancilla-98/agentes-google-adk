@@ -15,11 +15,13 @@ Cada carpeta es un agente independiente que se puede abrir en la interfaz de des
 | [`research_assistant`](research_assistant/) | Herramienta integrada: búsqueda | `google_search`, la herramienta de búsqueda con fundamentación (*grounding*) que provee ADK. | ⚠️ Requiere nivel pago |
 | [`math_assistant`](math_assistant/) | Herramienta integrada: código | `BuiltInCodeExecutor`: el modelo escribe y ejecuta Python para calcular con exactitud. | ✅ |
 | [`research_assistant_ddg`](research_assistant_ddg/) | Bonus: herramienta personalizada | Misma idea que `research_assistant`, pero con una función propia que busca en DuckDuckGo (gratis) y con reintentos automáticos (`retry_options`). | ✅ |
+| [`file_reader_assistant`](file_reader_assistant/) | Herramientas MCP | `McpToolset` conectado al servidor MCP de sistema de archivos (`npx`): herramientas descubiertas automáticamente y `tool_filter` para exponer solo las de lectura. | ✅ |
 
 ## Requisitos
 
 - Python 3.11 o superior (desarrollado con 3.13).
 - Una API key de Gemini, gratuita, de [Google AI Studio](https://aistudio.google.com/apikey).
+- [Node.js](https://nodejs.org/) (trae `npx`), solo para `file_reader_assistant`, que lanza un servidor MCP hecho en Node.
 
 ## Instalación
 
@@ -87,6 +89,7 @@ Correcciones que hubo que hacer para que los ejemplos funcionaran en ADK 2.8:
 - Las claves `temp:` se descartan del estado inicial. Para demostrarlas se pasan en el turno con `runner.run_async(..., state_delta={"temp:step": ...})`.
 - `create_session()` y `get_session()` son asíncronas; el script de prueba usa `asyncio`.
 - Al crear un proyecto con `adk create`, elegir el backend **1 (Google AI)**. Las opciones 2 y 3 configuran Vertex AI, que requiere Google Cloud con facturación.
+- El soporte de MCP es un extra opcional de ADK: sin `google-adk[mcp]`, `from google.adk.tools.mcp_tool import McpToolset` falla con `ImportError`. Otras correcciones de esa práctica (ruta de la carpeta, `read_text_file`, timeout de arranque) están en su [README](file_reader_assistant/README.md#diferencias-con-el-material-del-curso).
 
 ## Licencia
 
